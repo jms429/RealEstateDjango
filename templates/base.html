@@ -11,8 +11,9 @@
     <!-- Custom -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Lightbox -->
-    <link rel="stylesheet" href="{% static 'css/lightbox.min.css.css' %}">
-    <title>BT Real Estate</title>
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+    <!-- this block allows for naming in the tab  -->
+    <title>BT Real Estate {% block title %}{% endblock %}</title>
 </head>
 <body>
 <!-- Top Bar -->

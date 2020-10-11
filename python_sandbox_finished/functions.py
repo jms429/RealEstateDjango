@@ -2,9 +2,9 @@
 
 # Create function
 def sayHello(name = 'Sam'):
-  """
-  Prints Hello and then name.
-  """
+  
+  # Prints Hello and then name.
+ 
   print('Hello ' + name)
 
 # Return value

@@ -16,22 +16,36 @@
         <li {% if 'about' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
           <a class="nav-link" href="{% url 'about'%}">About</a>
         </li>
-        <li {% if 'listings' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+        <li {% if 'listings' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3"
+          {% endif %}>
           <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item mr-3">
-          <a class="nav-link" href="register.html">
-            <i class="fas fa-user-plus"></i> Register</a>
+        <!-- this changes the options depending on whether user is logged in  -->
+        {% if user.is_authenticated %}
+        <li {% if 'dashboard' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+          <a class="nav-link" href="{% url 'dashboard' %}">Welcome {{user.username}} (Dashboard)</a>
         </li>
+        <!-- this is the logout button li  -->
         <li class="nav-item mr-3">
-          <a class="nav-link" href="login.html">
-            <i class="fas fa-sign-in-alt"></i>
-
-            Login</a>
+          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+            <i class="fa fa-sign-out-alt" aria-hidden="true"></i>Logout
+          </a>
+          <form action="{% url 'logout' %}" method="POST" id="logout">
+            {% csrf_token %}
+            <input type="hidden">
+          </form>
         </li>
+        {% else %}
+        <li {% if 'register' == request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+        <li {% if 'login' == request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>

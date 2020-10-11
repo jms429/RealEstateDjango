@@ -1,0 +1,24 @@
+KEY===>   ! is folder  @@ is html page in !templates
+
+!.vscode : is where workspace settings go for vscode
+
+!accounts : this is APP we created for user accounts linked to pages:
+        @@login and @@register( IN TEMPLATES APP)
+    
+    !migrations : will hold all data for databases within each APP
+    meaning each app will have one.
+
+!btre : MAIN APP! this holds the routing for urls, and settings
+    like what database we use, setting static file urls.
+
+    !static : all the static files (CSS, IMG, JS) for all apps
+
+!listings : this is APP we created for house listings holds the model for them
+        also handles the views for @@listing and @@listings pages ( IN TEMPLATES APP).
+        also handles the context for the search function in choices.py
+
+!media (and sub folders) : this holds our house photos sorted into folders by date we 
+        do this because these update and change more often than "static" images.
+
+!pages : 
+
